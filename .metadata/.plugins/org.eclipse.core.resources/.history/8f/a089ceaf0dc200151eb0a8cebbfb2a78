@@ -1,0 +1,15 @@
+package ask.me.assignment;
+
+public class TestOffSet {
+	
+
+	public void offsetTestSet()
+	{
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + TestConstants.);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		
+	}
+
+}

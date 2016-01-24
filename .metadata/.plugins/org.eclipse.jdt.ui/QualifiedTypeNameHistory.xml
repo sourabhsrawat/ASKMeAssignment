@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="ask.me.assignment.CreateConnection"/>
+<fullyQualifiedTypeName name="org.codehaus.jackson.map.ObjectMapper"/>
+<fullyQualifiedTypeName name="ask.me.assignment.RequestResponse"/>
+<fullyQualifiedTypeName name="org.codehaus.jackson.annotate.JsonAutoDetect.Visibility"/>
+<fullyQualifiedTypeName name="ask.me.assignment.FieldBase"/>
+<fullyQualifiedTypeName name="org.codehaus.jackson.JsonFactory"/>
+<fullyQualifiedTypeName name="org.codehaus.jackson.JsonNode"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="ask.me.assignment.TestFilters"/>
+<fullyQualifiedTypeName name="com.opencsv.CSVReader"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="ask.me.assignment.TestConstants"/>
+<fullyQualifiedTypeName name="ask.me.assignment.TestOffSet"/>
+<fullyQualifiedTypeName name="ask.me.assignment.TestFieldSelection"/>
+</qualifiedTypeNameHistroy>

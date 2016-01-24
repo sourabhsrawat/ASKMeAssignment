@@ -1,0 +1,43 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class TestSorting extends TestBase{
+
+	private static final String SORT = "&sort["+ TestConstants.SORT_BY +"]=desc" ;
+		
+	public void sortingTestSet() throws IOException {
+
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + SORT);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		ArrayList<String[]> result = new ArrayList<String[]>();
+		List<String[]> csvFileData = getCSVData();
+		
+		int sortNum =2;
+
+		Collections.sort(csvFileData, new Comparator < String[] > () {
+		    public int compare(String[] x1, String[] x2) {
+		        if (x1.length > sortNum && x2.length > sortNum) {
+		            return x2[sortNum].compareTo(x1[sortNum]); 
+		        }
+		        if (x1.length > sortNum) {
+		            return 1;
+		        }
+		        if (x2.length > sortNum) {
+		            return -1;
+		        }
+		        return x2.length - x1.length;
+		    }
+		});
+		String [] tmp = csvFileData.get(0);
+		System.out.println(tmp[0]);
+		
+	}
+
+}

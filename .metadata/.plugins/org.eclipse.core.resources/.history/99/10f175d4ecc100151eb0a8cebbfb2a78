@@ -1,0 +1,46 @@
+package ask.me.assignment;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+
+import com.opencsv.CSVReader;
+
+//Class to create HTTP connection 
+public class CreateConnection {
+
+	public StringBuffer getResponse(String URL) throws IOException {
+		URL urlObject = null;
+		if (!URL.equals(null)) {
+			urlObject = new URL(URL);
+		}
+		HttpURLConnection httpConnection = (HttpURLConnection) urlObject
+				.openConnection();
+
+		BufferedReader bufferReader = new BufferedReader(new InputStreamReader(
+				httpConnection.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = bufferReader.readLine()) != null) {
+			response.append(inputLine);
+		}
+		bufferReader.close();
+
+		return response;
+	}
+
+	public List<String[]> getCSVData() throws IOException {
+		CSVReader csvReader = new CSVReader(new FileReader(
+				TestConstants.CSV_FILE_NAME));
+		List<String[]> csvFileData = csvReader.readAll();
+		csvReader.close();
+
+		return csvFileData;
+	}
+
+}

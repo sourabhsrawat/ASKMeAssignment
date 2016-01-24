@@ -1,0 +1,5 @@
+package ask.me.assignment;
+
+public class CompanyClass extends FieldBase {
+
+}

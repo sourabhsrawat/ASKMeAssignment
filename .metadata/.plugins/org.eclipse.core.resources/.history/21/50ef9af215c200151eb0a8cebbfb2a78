@@ -1,0 +1,16 @@
+package ask.me.assignment;
+
+public class TestFieldSelection extends TestBase{
+	
+	private static final String PARAMETER_FIELD = "&fields=";
+	
+	public void fieldTestSet()
+	{
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + PARAMETER_LIMIT + TestConstants.LIMIT
+				+ PARAMETER_OFFSET + TestConstants.OFFSET);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+	}
+
+}

@@ -1,0 +1,41 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestFilters extends TestBase {
+
+	private static final String filter = "&filters[CORPORATEIDENTIFICATIONNUMBER]="+TestConstants.FILTER;
+
+	public void filterTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + filter);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		ArrayList<String[]> result = new ArrayList<String[]>();
+		List<String[]> csvFileData = getCSVData();
+		for (String[] rows : csvFileData) {
+			for (String col : rows) {
+				if (col.equals(TestConstants.FILTER)) {
+					result.add(rows);
+				}
+			}
+		}
+
+		for (String[] row : result) {
+			for (String col : row) {
+				System.out.println(col);
+			}
+		}
+		
+		Records[] records = httpRequestResponse.getRecords();
+		
+		for(Records record : records)
+		{
+			System.out.println("Records ::"+record.getCorporateIdentificationNumber());
+		}
+	
+	}
+
+}

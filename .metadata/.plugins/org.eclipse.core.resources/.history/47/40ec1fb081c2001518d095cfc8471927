@@ -1,0 +1,22 @@
+package ask.me.assignment;
+
+public class TestRun {
+
+	private final String USER_AGENT = "Mozilla/5.0";
+
+	public static void main(String[] args) throws Exception {
+
+		
+		TestFilters testFilter = new TestFilters();
+	
+		testFilter.filterTestSet();
+		
+		//TestOffSet of = new TestOffSet();
+		//of.offsetTestSet();
+		//TestFieldSelection fs = new TestFieldSelection();
+		//fs.fieldTestSet();
+		//TestSorting ts = new TestSorting();
+		//ts.sortingTestSet();
+
+	}
+}

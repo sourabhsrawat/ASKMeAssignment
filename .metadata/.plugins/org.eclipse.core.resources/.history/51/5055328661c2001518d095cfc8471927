@@ -1,0 +1,38 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class TestFieldSelection extends TestBase {
+
+	private static final String PARAMETER_FIELD = "&fields=";
+	private static final String SPLITER = ",";
+
+	public void fieldTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + PARAMETER_FIELD + TestConstants.FIELDS);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+		
+		String[] filedsGiven = TestConstants.FIELDS.split(SPLITER);
+		
+		Fields fields = httpRequestResponse.getFields();
+		
+		ArrayList<String> filedGivenInArrayList = (ArrayList<String>) Arrays.asList(filedsGiven);
+		
+		if(!(fields.getId() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getId()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getId() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			
+		}
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package ask.me.assignment;
+
+
+public class RecordComparator{
+
+
+	public int compare(Records[] records, Object[] obj2) {
+		
+		int result = 0;
+		
+		if(obj1.length != obj2.length)
+		{
+			return -1;
+		}
+		
+		else
+		{
+			for(Object o1 : obj1)
+			{
+				if()
+			}
+			return result;
+		}
+	}
+
+}

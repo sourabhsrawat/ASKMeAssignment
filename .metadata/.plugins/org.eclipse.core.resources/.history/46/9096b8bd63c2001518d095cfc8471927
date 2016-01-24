@@ -1,0 +1,30 @@
+package ask.me.assignment;
+
+public final class TestConstants {
+	
+	public static final String REQUEST_URL = "https://data.gov.in/api/datastore/resource.json?resource_id=d1ac29db-549d-44b2-9bea-28d6e449ff85&api-key=";
+	public static final String KEY = "abd4906aea249edb75fb0586fd7d642e";
+	public static final String CSV_FILE_NAME = "company_master_data_upto_Mar_2015_Maharashtra.csv";
+	public static final String FILTER = "BARB";
+	public static final String LIMIT = "1";
+	public static final String OFFSET = "6";
+	public static final String ID_TO_VERIFY = "7";
+	public static final String FIELDS = "id,DATEOFREGISTRATION,COMPANYNAME,COMPANYSTATUS";
+	
+	
+	//Fields Name
+    public static final String ID = "Id";
+    public static final String TIMESTAMP = "timestamp";
+    public static final String CORPORATE_IDENTIFICATION_NUMBER = "CORPORATEIDENTIFICATIONNUMBER";
+    public static final String DATE_OF_REGISTRATION = "DATEOFREGISTRATION";
+    public static final String COMPANYNAME = "COMPANY_NAME";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+    public static final String ID = "Id";
+}

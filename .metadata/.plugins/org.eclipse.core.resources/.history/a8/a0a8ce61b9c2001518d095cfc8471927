@@ -1,0 +1,165 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class TestFieldSelection extends TestBase {
+
+	private static final String PARAMETER_FIELD = "&fields=";
+	private static final String SPLITER = ",";
+	private static final String TEST_CASE_FAIL_STR = "Field Selection Test Case : Fail ";
+	private static final String FAILED_STR = "Failure Reason: Field ";
+	private static final String NOT_FOUND = " not found. ";
+
+	public void fieldTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + PARAMETER_FIELD + TestConstants.FIELDS);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		String[] filedsGiven = TestConstants.FIELDS.split(SPLITER);
+		int actualNoOfFields = filedsGiven.length;
+		int noOfFieldsVerified = 0;
+
+		Fields fields = httpRequestResponse.getFields();
+
+		ArrayList<String> filedGivenInArrayList = new ArrayList<String>(
+				Arrays.asList(filedsGiven));
+
+		if (!(fields.getId() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.ID)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.ID
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getTimeStamp() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.TIMESTAMP)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.TIMESTAMP
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getCorporateIdentificationNumber() == null)) {
+			if (!filedGivenInArrayList
+					.contains(TestConstants.CORPORATE_IDENTIFICATION_NUMBER)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR
+						+ TestConstants.CORPORATE_IDENTIFICATION_NUMBER
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getDateOfRegistration() == null)) {
+			if (!filedGivenInArrayList
+					.contains(TestConstants.DATE_OF_REGISTRATION)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR
+						+ TestConstants.DATE_OF_REGISTRATION + NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getCompanyName() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.COMPANY_NAME)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.COMPANY_NAME
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getCompanyStatus() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.COMPANY_STATUS)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.COMPANY_STATUS
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getCompanyClass() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.COMPANY_CLASS)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.COMPANY_CLASS
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getCompanyCategory() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.COMPANY_CATEGORY)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.COMPANY_CATEGORY
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getAuthorizedCapital() == null)) {
+			if (!filedGivenInArrayList
+					.contains(TestConstants.AUTHORIZED_CAPITAL)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR
+						+ TestConstants.AUTHORIZED_CAPITAL + NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getPaidUpCapital() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.PAIDUP_CAPITAL)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.PAIDUP_CAPITAL
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getRegisteredState() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.REGISTERED_STATE)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR + TestConstants.REGISTERED_STATE
+						+ NOT_FOUND);
+			}
+		}
+		if (!(fields.getRegistrarOfCompanies() == null)) {
+			if (!filedGivenInArrayList
+					.contains(TestConstants.REGISTRAR_OF_COMPANIES)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out
+						.println(FAILED_STR
+								+ TestConstants.REGISTRAR_OF_COMPANIES
+								+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getPrincipalBusinessActivity() == null)) {
+			if (!filedGivenInArrayList
+					.contains(TestConstants.PRINCIPAL_BUSINESS_ACTIVITY)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR
+						+ TestConstants.PRINCIPAL_BUSINESS_ACTIVITY
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getRegisteredOfficeAddress() == null)) {
+			if (!filedGivenInArrayList
+					.contains(TestConstants.REGISTERED_OFFICE_ADDRESS)) {
+				System.out.println(TEST_CASE_FAIL_STR);
+				System.out.println(FAILED_STR
+						+ TestConstants.REGISTERED_OFFICE_ADDRESS
+						+ NOT_FOUND);
+			}
+			noOfFieldsVerified++;
+		}
+		if (!(fields.getSubCategory() == null)) {
+			if (!filedGivenInArrayList.contains(TestConstants.SUB_CATEGORY)) {
+				System.out.println(FAILED_STR);
+				System.out.println(FAILED_STR + TestConstants.SUB_CATEGORY
+						+ " not found. ");
+			}
+			noOfFieldsVerified++;
+		}
+		if (noOfFieldsVerified == actualNoOfFields) {
+			System.out.println("Field Selection Test Case : PASS");
+		}
+
+	}
+
+}

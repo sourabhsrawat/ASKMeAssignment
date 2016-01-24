@@ -1,0 +1,9 @@
+package ask.me.assignment;
+
+public final class TestConstants {
+	
+	public static final String requestURL = "https://data.gov.in/api/datastore/resource.json?resource_id=d1ac29db-549d-44b2-9bea-28d6e449ff85&api-key=";
+	public static final String key = "abd4906aea249edb75fb0586fd7d642e";
+	
+
+}

@@ -1,0 +1,85 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestFilters extends TestBase {
+
+	private static final String FILTER = "&filters[CORPORATEIDENTIFICATIONNUMBER]="
+			+ TestConstants.FILTER;
+
+	public void filterTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + FILTER);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		ArrayList<String[]> result = new ArrayList<String[]>();
+		List<String[]> csvFileData = getCSVData();
+		for (String[] rows : csvFileData) {
+			for (String col : rows) {
+				if (col.equals(TestConstants.FILTER)) {
+					result.add(rows);
+				}
+			}
+		}
+
+		Records[] records = httpRequestResponse.getRecords();
+
+		compare(result, records);
+	}
+
+	public void compare(ArrayList<String[]> resultData, Records[] records) {
+		if (resultData.size() != records.length) {
+			System.out.println("Filter Test case : FAIL");
+			System.out.println("Failure Reason: arrays having different size");
+		} else {
+			for (String[] data : resultData) {
+				for (Records record : records) {
+					if (!data[0].equals(record.getCorporateIdentificationNumber()))
+					{
+						System.out.println("Filter Test case : FAIL");
+						System.out.println("Failure Reason: Diffirence In Records");
+						System.out.println("Record 1: "+ data[0]);
+						System.out.println("Record 2: "+ record.getCorporateIdentificationNumber());
+					}
+					else if(!data[1].equals(record.getDateOfRegistration()))
+					{
+						System.out.println("Filter Test case : FAIL");
+						System.out.println("Failure Reason: Diffirence In Records");
+						System.out.println("Record 1: "+ data[1]);
+						System.out.println("Record 2: "+ record.getDateOfRegistration());
+					}
+					else if(!data[2].equals( record.getCompanyName()))
+					{
+						System.out.println("Filter Test case : FAIL");
+						System.out.println("Failure Reason: Diffirence In Records");
+						System.out.println("Record 1: "+ data[2]);
+						System.out.println("Record 2: "+ record.getCompanyName());
+					}
+					else if(!data[3].equals( record.getCompanyStatus()))
+					{
+						System.out.println("Filter Test case : FAIL");
+						System.out.println("Failure Reason: Diffirence In Records");
+						System.out.println("Record 1: "+ data[3]);
+						System.out.println("Record 2: "+ record.getCompanyStatus());
+					}
+					 * data[4].equals( record.getCompanyClass()) &&
+					 * data[5].equals( record.getCompanyCategory()) &&
+					 * data[6].equals( record.getAuthorizedCapital()) &&
+					 * data[7].equals( record.getPaidUpCapital()) &&
+					 * data[8].equals( record.getRegisteredState()) &&
+					 * data[9].equals( record.getRegistrarOfCompanies()) &&
+					 * data[10].equals( record.getPrincipalBusinessActivity())
+					 * && data[11].equals( record.getRegisteredOfficeAddress())
+					 * && data[12].equals( record.getSubCategory())
+					 */) {
+						System.out.println("In If");
+						compareResults = true;
+
+					}
+				}
+			}
+		}
+	}
+}

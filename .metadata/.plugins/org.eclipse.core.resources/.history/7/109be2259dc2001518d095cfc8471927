@@ -1,0 +1,10 @@
+package ask.me.assignment;
+
+public class TestJoin extends TestBase {
+
+	public void joinTestSet()
+	{
+		StringBuffer response = getResponse(TestConstants.JOIN_REQUEST_URL);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+	}
+}

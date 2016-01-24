@@ -1,0 +1,366 @@
+package ask.me.assignment;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+
+import com.opencsv.CSVReader;
+
+//Class to create HTTP connection 
+abstract public class TestBase {
+
+	public StringBuffer getResponse(String URL) throws IOException {
+		URL urlObject = null;
+		if (!URL.equals(null)) {
+			urlObject = new URL(URL);
+		}
+		HttpURLConnection httpConnection = (HttpURLConnection) urlObject
+				.openConnection();
+
+		BufferedReader bufferReader = new BufferedReader(new InputStreamReader(
+				httpConnection.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = bufferReader.readLine()) != null) {
+			response.append(inputLine);
+		}
+		bufferReader.close();
+
+		return response;
+	}
+
+	public List<String[]> getCSVData(String csvFileName) throws IOException {
+		CSVReader csvReader = new CSVReader(new FileReader(csvFileName));
+		List<String[]> csvFileData = csvReader.readAll();
+
+		csvReader.close();
+		return csvFileData;
+	}
+
+	public RequestResponse mapHttpRequest(StringBuffer response)
+			throws JsonParseException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		RequestResponse httpRequestResponse = mapper.readValue(
+				response.toString(), RequestResponse.class);
+
+		return httpRequestResponse;
+
+	}
+
+	public RequestResponseForJoin mapHttpRequestForJoin(StringBuffer response)
+			throws JsonParseException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		RequestResponseForJoin httpRequestResponse = mapper.readValue(
+				response.toString(), RequestResponseForJoin.class);
+
+		return httpRequestResponse;
+
+	}
+
+	public void compare(ArrayList<String[]> csvData, Records[] records,
+			String testCaseName) {
+		int counter = 0;
+		boolean pass = true;
+		
+		for (Records record : records) {
+			String[] data = csvData.get(counter);
+			if (!data[0].equals(record.getCorporateIdentificationNumber())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[0]);
+				System.out.println("Record 2: "
+						+ record.getCorporateIdentificationNumber());
+				pass = false;
+			} else if (!data[1].equals(record.getDateOfRegistration())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[1]);
+				System.out.println("Record 2: "
+						+ record.getDateOfRegistration());
+			} else if (!data[2].equals(record.getCompanyName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[2]);
+				System.out.println("Record 2: " + record.getCompanyName());
+				pass = false;
+			} else if (!data[3].equals(record.getCompanyStatus())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[3]);
+				System.out.println("Record 2: " + record.getCompanyStatus());
+				pass = false;
+			} else if (!data[4].equals(record.getCompanyClass())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[4]);
+				System.out.println("Record 2: " + record.getCompanyClass());
+				pass = false;
+			} else if (!data[5].equals(record.getCompanyCategory())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[5]);
+				System.out.println("Record 2: " + record.getCompanyCategory());
+				pass = false;
+			} else if (!data[6].equals(record.getAuthorizedCapital())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[6]);
+				System.out
+						.println("Record 2: " + record.getAuthorizedCapital());
+				pass = false;
+			} else if (!data[7].equals(record.getPaidUpCapital())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[7]);
+				System.out.println("Record 2: " + record.getPaidUpCapital());
+				pass = false;
+			} else if (!data[8].equals(record.getRegisteredState())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[8]);
+				System.out.println("Record 2: " + record.getRegisteredState());
+				pass = false;
+			} else if (!data[9].equals(record.getRegistrarOfCompanies())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[9]);
+				System.out.println("Record 2: "
+						+ record.getRegistrarOfCompanies());
+				pass = false;
+			} else if (!data[10].equals(record.getPrincipalBusinessActivity())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[10]);
+				System.out.println("Record 2: "
+						+ record.getPrincipalBusinessActivity());
+				pass = false;
+			} else if (!data[11].equals(record.getRegisteredOfficeAddress())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[11]);
+				System.out.println("Record 2: "
+						+ record.getRegisteredOfficeAddress());
+				pass = false;
+			} else if (!data[12].equals(record.getSubCategory())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[12]);
+				System.out.println("Record 2: " + record.getSubCategory());
+				pass = false;
+			}
+			counter++;
+		}
+		if (pass) {
+			System.out.println(testCaseName + " : PASS");
+		}
+	}
+
+	public void compareRecordsFromJoin(ArrayList<String[]> csvData,
+			RecordsForJoin[] records, String testCaseName) {
+		int counter = 0;
+		boolean pass = true;
+		csvData.remove(0);
+		for (RecordsForJoin record : records) {
+			String[] data = csvData.get(counter);
+			if (!data[0].equals(record.getId())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[0]);
+				System.out.println("Record 2: " + record.getId());
+				pass = false;
+			} else if (!data[1].equals(record.getTimeStamp())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[1]);
+				System.out.println("Record 2: " + record.getTimeStamp());
+				pass = false;
+			} else if (!data[2].equals(record.getOfficeName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[2]);
+				System.out.println("Record 2: " + record.getOfficeName());
+				pass = false;
+			} else if (!data[3].equals(record.getPincode())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[3]);
+				System.out.println("Record 2: " + record.getPincode());
+				pass = false;
+			} else if (!data[4].equals(record.getOfficeType())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[4]);
+				System.out.println("Record 2: " + record.getOfficeType());
+				pass = false;
+			} else if (!data[5].equals(record.getDeliveryStatus())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[5]);
+				System.out.println("Record 2: " + record.getDeliveryStatus());
+				pass = false;
+			} else if (!data[6].equals(record.getDivisionName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[6]);
+				System.out.println("Record 2: " + record.getDivisionName());
+				pass = false;
+			} else if (!data[7].equals(record.getRegionName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[7]);
+				System.out.println("Record 2: " + record.getRegionName());
+				pass = false;
+			} else if (!data[8].equals(record.getCircleName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[8]);
+				System.out.println("Record 2: " + record.getCircleName());
+			} else if (!data[9].equals(record.getTaluk())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[9]);
+				System.out.println("Record 2: " + record.getTaluk());
+				pass = false;
+			} else if (!data[10].equals(record.getDistrictName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[10]);
+				System.out.println("Record 2: " + record.getDistrictName());
+				pass = false;
+			} else if (!data[11].equals(record.getStateName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[11]);
+				System.out.println("Record 2: " + record.getStateName());
+				pass = false;
+			} else if (!data[12].equals(record.getTelephone())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[12]);
+				System.out.println("Record 2: " + record.getTelephone());
+				pass = false;
+			} else if (!data[13].equals(record.getRelatedSuboffice())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[12]);
+				System.out.println("Record 2: " + record.getRelatedSuboffice());
+				pass = false;
+			} else if (!data[14].equals(record.getRelatedHeadOffice())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[12]);
+				System.out
+						.println("Record 2: " + record.getRelatedHeadOffice());
+				pass = false;
+			} else if (!data[15].equals(record
+					.getCorporateIdentificationNumber())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[0]);
+				System.out.println("Record 2: "
+						+ record.getCorporateIdentificationNumber());
+				pass = false;
+			} else if (!data[15].equals(record
+					.getCorporateIdentificationNumber())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[0]);
+				System.out.println("Record 2: "
+						+ record.getCorporateIdentificationNumber());
+				pass = false;
+			} else if (!data[16].equals(record.getDateOfRegistration())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[1]);
+				System.out.println("Record 2: "
+						+ record.getDateOfRegistration());
+				pass = false;
+			} else if (!data[17].equals(record.getCompanyName())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[2]);
+				System.out.println("Record 2: " + record.getCompanyName());
+				pass = false;
+			} else if (!data[18].equals(record.getCompanyStatus())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[3]);
+				System.out.println("Record 2: " + record.getCompanyStatus());
+				pass = false;
+			} else if (!data[19].equals(record.getCompanyClass())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[4]);
+				System.out.println("Record 2: " + record.getCompanyClass());
+				pass = false;
+			} else if (!data[20].equals(record.getCompanyCategory())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[5]);
+				System.out.println("Record 2: " + record.getCompanyCategory());
+				pass = false;
+			} else if (!data[21].equals(record.getAuthorizedCapital())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[6]);
+				System.out
+						.println("Record 2: " + record.getAuthorizedCapital());
+				pass = false;
+			} else if (!data[22].equals(record.getPaidUpCapital())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[7]);
+				System.out.println("Record 2: " + record.getPaidUpCapital());
+				pass = false;
+			} else if (!data[23].equals(record.getRegisteredState())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[8]);
+				System.out.println("Record 2: " + record.getRegisteredState());
+				pass = false;
+			} else if (!data[24].equals(record.getRegistrarOfCompanies())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[9]);
+				System.out.println("Record 2: "
+						+ record.getRegistrarOfCompanies());
+				pass = false;
+			} else if (!data[25].equals(record.getPrincipalBusinessActivity())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[10]);
+				System.out.println("Record 2: "
+						+ record.getPrincipalBusinessActivity());
+				pass = false;
+			} else if (!data[26].equals(record.getRegisteredOfficeAddress())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[11]);
+				System.out.println("Record 2: "
+						+ record.getRegisteredOfficeAddress());
+				pass = false;
+			} else if (!data[27].equals(record.getSubCategory())) {
+				System.out.println(testCaseName + " : FAIL");
+				System.out.println("Failure Reason: Difference In Records");
+				System.out.println("Record 1: " + data[12]);
+				System.out.println("Record 2: " + record.getSubCategory());
+				pass = false;
+			}
+			counter++;
+		}
+		if (pass) {
+			System.out.println(testCaseName + " : PASS");
+		}
+	}
+
+}

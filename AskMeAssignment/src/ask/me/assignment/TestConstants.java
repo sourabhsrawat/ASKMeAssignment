@@ -1,0 +1,34 @@
+package ask.me.assignment;
+
+public final class TestConstants {
+
+	public static final String REQUEST_URL = "https://data.gov.in/api/datastore/resource.json?resource_id=d1ac29db-549d-44b2-9bea-28d6e449ff85&api-key=";
+	public static final String JOIN_REQUEST_URL = "https://data.gov.in/api/datastore/resource.json?resource_id[x]=0a076478-3fd3-4e2c-b2d2-581876f56d77&resource_id[y]=d1ac29db-549d-44b2-9bea-28d6e449ff85&api-key=abd4906aea249edb75fb0586fd7d642e&join[y]=id&join[x]=id";
+	public static final String KEY = "abd4906aea249edb75fb0586fd7d642e";
+	public static final String CSV_FILE_NAME = "company_master_data_upto_Mar_2015_Maharashtra.csv";
+	public static final String CSV_FILE_JOIN_NAME = "JoinCsv.csv";
+	public static final String FILTER = "BARB";
+	public static final String LIMIT = "1";
+	public static final String OFFSET = "6";
+	public static final String ID_TO_VERIFY = "7";
+	public static final String FIELDS = "id,DATEOFREGISTRATION,COMPANYNAME,COMPANYSTATUS";
+	public static final String SORT_BY = "CORPORATEIDENTIFICATIONNUMBER";
+	public static final int COLUMN_INDEX = 0;
+
+	// Fields Name
+	public static final String ID = "id";
+	public static final String TIMESTAMP = "timestamp";
+	public static final String CORPORATE_IDENTIFICATION_NUMBER = "CORPORATEIDENTIFICATIONNUMBER";
+	public static final String DATE_OF_REGISTRATION = "DATEOFREGISTRATION";
+	public static final String COMPANY_NAME = "COMPANYNAME";
+	public static final String COMPANY_STATUS = "COMPANYSTATUS";
+	public static final String COMPANY_CLASS = "COMPANYCLASS";
+	public static final String COMPANY_CATEGORY = "COMPANYCATEGORY";
+	public static final String AUTHORIZED_CAPITAL = "AUTHORIZEDCAPITAL";
+	public static final String PAIDUP_CAPITAL = "PAIDUPCAPITAL";
+	public static final String REGISTERED_STATE = "REGISTEREDSTATE";
+	public static final String REGISTRAR_OF_COMPANIES = "REGISTRAROFCOMPANIES";
+	public static final String PRINCIPAL_BUSINESS_ACTIVITY = "PRINCIPALBUSINESSACTIVITY";
+	public static final String REGISTERED_OFFICE_ADDRESS = "REGISTEREDOFFICEADDRESS";
+	public static final String SUB_CATEGORY = "SUBCATEGORY";
+}

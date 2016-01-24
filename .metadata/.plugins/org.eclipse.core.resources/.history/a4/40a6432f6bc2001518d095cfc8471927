@@ -1,0 +1,22 @@
+package ask.me.assignment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestSorting {
+
+	private static final String SORT = "&filters[CORPORATEIDENTIFICATIONNUMBER]="
+			+ TestConstants.SORT_BY;
+	
+	public void sortingTestSet() {
+
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + SORT);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		ArrayList<String[]> result = new ArrayList<String[]>();
+		List<String[]> csvFileData = getCSVData();
+
+	}
+
+}

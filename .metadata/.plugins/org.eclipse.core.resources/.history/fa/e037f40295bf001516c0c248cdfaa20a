@@ -1,0 +1,36 @@
+package ask.me.assignment;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+//Class to create HTTP connection 
+public class CreateConnection {
+	
+	private String URL = "";
+	public CreateConnection(String URL)
+	{
+		this.URL = URL;
+	}
+	
+	public StringBuffer getResponse() throws IOException
+	{
+		URL obj = new URL(URL);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(
+				con.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine);
+		}
+		in.close();
+		
+		return response;
+	}
+
+}

@@ -1,0 +1,26 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+
+public class TestFieldSelection extends TestBase {
+
+	private static final String PARAMETER_FIELD = "&fields=";
+	private static final String SPLITER = ",";
+
+	public void fieldTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + PARAMETER_FIELD + TestConstants.FIELDS);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+		
+		String[] filedsGiven = TestConstants.FIELDS.split(SPLITER);
+		
+		Fields fields = httpRequestResponse.getFields();
+		
+		if(fields.getCompanyCategory() == null)
+		{
+			System.out.println("Test");
+		}
+
+	}
+
+}

@@ -1,0 +1,143 @@
+package ask.me.assignment;
+
+public class Fields {
+
+	private ID id;
+	private TimeStamp timeStamp;
+	private CorporateIdentificationNumber corporateIdentificationNumber;
+	private DateOfRegistration dateOfRegistration;
+	private CompanyName companyName;
+	private CompanyStatus companyStatus;
+	private CompanyClass companyClass;
+	private CompanyCategory companyCategory;
+	private AuthorizedCapital authorizedCapital;
+	private PaidUpCapital paidUpCapital;
+	private RegisteredState registeredState;
+	private RegistrarOfCompanies registrarOfCompanies;
+	private PrincipalBusinessActivity principalBusinessActivity;
+	private RegisteredOfficeAddress registeredOfficeAddress;
+	private SubCategory subCategory;
+
+	public void setId(ID id) {
+		this.id = id;
+	}
+
+	public ID getId() {
+		return id;
+	}
+
+	public void setTimeStamp(TimeStamp timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+	public TimeStamp getTimeStamp() {
+		return timeStamp;
+	}
+	
+	public void setCorporateIdentificationNumber(CorporateIdentificationNumber corporateIdentificationNumber)
+	{
+		this.corporateIdentificationNumber = corporateIdentificationNumber;
+	}
+	
+	public CorporateIdentificationNumber getcorporateIdentificationNumber()
+	{
+		return corporateIdentificationNumber;
+	}
+
+	public void setDateOfRegistration(DateOfRegistration dateOfRegistration) {
+		this.dateOfRegistration = dateOfRegistration;
+	}
+
+	public DateOfRegistration getDateOfRegistration() {
+		return dateOfRegistration;
+	}
+
+	public void setCompanyName(CompanyName companyName) {
+		this.companyName = companyName;
+	}
+
+	public CompanyName getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyStatus(CompanyStatus companyStatus) {
+		this.companyStatus = companyStatus;
+	}
+
+	public CompanyStatus getCompanyStatus() {
+		return companyStatus;
+	}
+
+	public void setcompanyClass(CompanyClass companyClass) {
+		this.companyClass = companyClass;
+	}
+
+	public CompanyClass getCompanyClass() {
+		return companyClass;
+	}
+
+	public void setCompanyCategory(CompanyCategory companyCategory) {
+		this.companyCategory = companyCategory;
+	}
+
+	public CompanyCategory getCompanyCategory() {
+		return companyCategory;
+	}
+
+	public void setAuthorizedCapital(AuthorizedCapital authorizedCapital) {
+		this.authorizedCapital = authorizedCapital;
+	}
+
+	public AuthorizedCapital getAuthorizedCapital() {
+		return authorizedCapital;
+	}
+
+	public void setPaidUpCapital(PaidUpCapital paidUpCapital) {
+		this.paidUpCapital = paidUpCapital;
+	}
+
+	public PaidUpCapital getPaidUpCapital() {
+		return paidUpCapital;
+	}
+
+	public void setRegisteredState(RegisteredState registeredState) {
+		this.registeredState = registeredState;
+	}
+
+	public RegisteredState getRegisteredState() {
+		return registeredState;
+	}
+
+	public void setRegistrarOfCompanies(RegistrarOfCompanies registrarOfCompanies) {
+		this.registrarOfCompanies = registrarOfCompanies;
+	}
+
+	public RegistrarOfCompanies getRegistrarOfCompanies() {
+		return registrarOfCompanies;
+	}
+
+	public void setPrincipalBusinessActivity(PrincipalBusinessActivity principalBusinessActivity) {
+		this.principalBusinessActivity = principalBusinessActivity;
+	}
+
+	public String getPrincipalBusinessActivity() {
+		return principalBusinessActivity;
+	}
+
+	public void setRegisteredOfficeAddress(String registeredOfficeAddress) {
+		this.registeredOfficeAddress = registeredOfficeAddress;
+	}
+
+	public String getregisteredOfficeAddress() {
+		return registeredOfficeAddress;
+	}
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
+
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+}

@@ -1,0 +1,123 @@
+package ask.me.assignment;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.codehaus.jackson.JsonFactory;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+import org.codehaus.jackson.annotate.JsonMethod;
+import org.codehaus.jackson.map.DeserializationConfig;
+import org.codehaus.jackson.map.ObjectMapper;
+
+public class Test {
+
+	private final String USER_AGENT = "Mozilla/5.0";
+
+	public static void main(String[] args) throws Exception {
+
+		//Test http = new Test();
+
+		//System.out.println("Testing 1 - Send Http GET request");
+		//http.sendGet();
+		CreateConnection cc = new CreateConnection(TestConstants.requestURL+TestConstants.key);
+		//System.out.println("\nTesting 2 - Send Http POST request");
+		// http.sendPost();
+		StringBuffer response  = cc.getResponse();
+		
+		//System.out.println(response.toString());
+		
+		//ObjectMapper mapper = new ObjectMapper().setVisibility(JsonMethod.FIELD, Visibility.ANY);
+	   // mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		//ObjectMapper mapper = new ObjectMapper();
+		//RequestResponse user1 = mapper.readValue(response.toString(), RequestResponse.class);
+		
+		//System.out.println("Sucess ::" + user1.getSucess());
+		
+		JsonFactory factory = new JsonFactory();
+
+	       ObjectMapper mapper = new ObjectMapper(factory);
+	       JsonNode rootNode = mapper.readTree(response.toString());  
+
+	       Iterator<Map.Entry<String,JsonNode>> fieldsIterator = rootNode.getFields();
+	       
+	       while (fieldsIterator.hasNext()) {
+
+	           Map.Entry<String,JsonNode> field = fieldsIterator.next();
+	           System.out.println(field.getValue().asText());
+	           //System.out.println("Key: " + field.getKey() + "\tValue:" + field.getValue());
+	       }
+
+	}
+
+	// HTTP GET request
+	private void sendGet() throws Exception {
+
+		String url = "https://data.gov.in/api/datastore/resource.json?resource_id=d1ac29db-549d-44b2-9bea-28d6e449ff85&api-key=abd4906aea249edb75fb0586fd7d642e";
+
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+		// optional default is GET
+		con.setRequestMethod("GET");
+
+		// add request header
+		//con.setRequestProperty("User-Agent", USER_AGENT);
+
+		//int responseCode = con.getResponseCode();
+		//System.out.println("\nSending 'GET' request to URL : " + url);
+		//System.out.println("Response Code : " + responseCode);
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(
+				con.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine);
+		}
+		in.close();
+
+		// print result
+		System.out.println(response.toString());
+		//JSONObject jsonObj = new JSONObject("yourJsonString");
+
+	}
+
+	/*
+	 * // HTTP POST request private void sendPost() throws Exception {
+	 * 
+	 * String url = "https://selfsolve.apple.com/wcResults.do"; URL obj = new
+	 * URL(url); HttpsURLConnection con = (HttpsURLConnection)
+	 * obj.openConnection();
+	 * 
+	 * // add reuqest header con.setRequestMethod("POST");
+	 * con.setRequestProperty("User-Agent", USER_AGENT);
+	 * con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+	 * 
+	 * String urlParameters = "sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
+	 * 
+	 * // Send post request con.setDoOutput(true); DataOutputStream wr = new
+	 * DataOutputStream(con.getOutputStream()); wr.writeBytes(urlParameters);
+	 * wr.flush(); wr.close();
+	 * 
+	 * int responseCode = con.getResponseCode();
+	 * System.out.println("\nSending 'POST' request to URL : " + url);
+	 * System.out.println("Post parameters : " + urlParameters);
+	 * System.out.println("Response Code : " + responseCode);
+	 * 
+	 * BufferedReader in = new BufferedReader(new InputStreamReader(
+	 * con.getInputStream())); String inputLine; StringBuffer response = new
+	 * StringBuffer();
+	 * 
+	 * while ((inputLine = in.readLine()) != null) { response.append(inputLine);
+	 * } in.close();
+	 * 
+	 * // print result System.out.println(response.toString());
+	 * 
+	 * }
+	 */
+}

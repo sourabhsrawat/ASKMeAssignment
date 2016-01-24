@@ -1,0 +1,17 @@
+package ask.me.assignment;
+
+public class ID extends FieldBase{
+	
+	private int unsigned;
+	
+	public void setUnsigned(int unsigned)
+	{
+		this.unsigned = unsigned;
+	}
+	
+	public int getUnsigned()
+	{
+		return unsigned;
+	}
+
+}

@@ -1,0 +1,36 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestFilters extends TestBase {
+
+	private static final String FILTER = "&filters[CORPORATEIDENTIFICATIONNUMBER]="
+			+ TestConstants.FILTER;
+
+	public void filterTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + FILTER);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		ArrayList<String[]> result = new ArrayList<String[]>();
+		List<String[]> csvFileData = getCSVData(TestConstants.CSV_FILE_NAME);
+		for (String[] rows : csvFileData) {
+			for (String col : rows) {
+				if (col.equals(TestConstants.FILTER)) {
+					result.add(rows);
+				}
+			}
+		}
+
+		Records[] records = httpRequestResponse.getRecords();
+		if (result.size() != records.length) {
+			System.out.println("Filter Test case : FAIL");
+			System.out.println("Failure Reason: arrays having different size");
+
+		} else {
+			compare(result, records, "Filter Test Case");
+		}
+	}
+}

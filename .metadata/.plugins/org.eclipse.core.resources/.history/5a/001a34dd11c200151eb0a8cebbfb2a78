@@ -1,0 +1,91 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestFilters extends TestBase {
+
+	private static final String FILTER = "&filters[CORPORATEIDENTIFICATIONNUMBER]="
+			+ TestConstants.FILTER;
+
+	public void filterTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + FILTER);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		ArrayList<String[]> result = new ArrayList<String[]>();
+		List<String[]> csvFileData = getCSVData();
+		for (String[] rows : csvFileData) {
+			for (String col : rows) {
+				if (col.equals(TestConstants.FILTER)) {
+					result.add(rows);
+				}
+			}
+		}
+
+		Records[] records = httpRequestResponse.getRecords();
+		ArrayList<String[]> recordsRecevied = new ArrayList<String[]>();
+
+		System.out.println(result.size() + " " + records.length);
+
+		if (compare(result, records)) {
+			System.out.println("Pass");
+		}
+
+	}
+
+	public boolean compare(ArrayList<String[]> resultData, Records[] records) {
+		boolean compareResults = false;
+		if (resultData.size() != records.length) {
+			compareResults = false;
+		} else {
+			for (String[] data : resultData) {
+				for (Records record : records) {
+					System.out.println("Test "+ data[1] + " "+record.getDateOfRegistration());
+					if (//data[0].equals( record.getCorporateIdentificationNumber())
+							 data[1].equals(record.getDateOfRegistration())
+							/*&& data[2].equals( record.getCompanyName())
+							&& data[3].equals( record.getCompanyStatus())
+							&& data[4].equals( record.getCompanyClass())
+							&& data[5].equals( record.getCompanyCategory())
+							&& data[6].equals( record.getAuthorizedCapital())
+							&& data[7].equals( record.getPaidUpCapital())
+							&& data[8].equals( record.getRegisteredState())
+							&& data[9].equals( record.getRegistrarOfCompanies())
+							&& data[10].equals( record.getPrincipalBusinessActivity())
+							&& data[11].equals( record.getRegisteredOfficeAddress())
+							&& data[12].equals( record.getSubCategory())*/) {
+						System.out.println("In If");
+						compareResults = true;
+
+					}
+				}
+			}
+		}
+
+		return compareResults;
+
+		/*
+		 * data[0] = record.getCorporateIdentificationNumber(); data[1] =
+		 * record.getDateOfRegistration(); data[2] = record.getCompanyName();
+		 * data[3] = record.getCompanyStatus(); data[4] =
+		 * record.getCompanyClass(); data[5] = record.getCompanyCategory();
+		 * data[6] = record.getAuthorizedCapital(); data[7] =
+		 * record.getPaidUpCapital(); data[8] = record.getRegisteredState();
+		 * data[9] = record.getRegistrarOfCompanies(); data[10] =
+		 * record.getPrincipalBusinessActivity(); data[11] =
+		 * record.getRegisteredOfficeAddress(); data[12] =
+		 * record.getSubCategory();
+		 */
+	}
+
+	public boolean isTheSame(String[] arr1, String[] arr2) {
+		if (arr1.length != arr2.length)
+			return false;
+		for (int i = 0; i < arr1.length; i++)
+			if (!arr1[i].equals(arr2[i]))
+				return false;
+		return true;
+	}
+}

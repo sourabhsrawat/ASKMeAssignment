@@ -1,0 +1,28 @@
+package ask.me.assignment;
+
+public class Company {
+
+	private long id;
+	private String timestamp;
+	private String dateOfRegistration;
+	private String companyName;
+	private String companyStatus;
+	private String companyClass;
+	private String companyCategory;
+	private String authorizedCapital;
+	private String paidUpCapital;
+	private String registeredState;
+	private String registrarOfCompanies;
+	private String principalBusinessActivity;
+	private String registeredOfficeAddress;
+	private String subCategory;
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+}

@@ -1,0 +1,125 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class TestFieldSelection extends TestBase {
+
+	private static final String PARAMETER_FIELD = "&fields=";
+	private static final String SPLITER = ",";
+
+	public void fieldTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + PARAMETER_FIELD + TestConstants.FIELDS);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+
+		String[] filedsGiven = TestConstants.FIELDS.split(SPLITER);
+
+		Fields fields = httpRequestResponse.getFields();
+
+		ArrayList<String> filedGivenInArrayList = new ArrayList<String>(
+				Arrays.asList(filedsGiven));
+
+		if (!(fields.getId() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getId())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field " + TestConstants.ID
+						+ " not found. ");
+			}
+		} else if (!(fields.getTimeStamp() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getTimeStamp())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.TIMESTAMP + " not found. ");
+			}
+		} else if (!(fields.getCorporateIdentificationNumber() == null)) {
+			if (!filedGivenInArrayList.contains(fields
+					.getCorporateIdentificationNumber())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.CORPORATE_IDENTIFICATION_NUMBER
+						+ " not found. ");
+			}
+		} else if (!(fields.getDateOfRegistration() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getDateOfRegistration())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.DATE_OF_REGISTRATION + " not found. ");
+			}
+		} else if (!(fields.getCompanyName() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getCompanyName())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.COMPANY_NAME + " not found. ");
+			}
+		} else if (!(fields.getCompanyStatus() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getCompanyStatus())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.COMPANY_STATUS + " not found. ");
+			}
+		} else if (!(fields.getCompanyClass() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getCompanyClass())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.COMPANY_CLASS + " not found. ");
+			}
+		} else if (!(fields.getCompanyCategory() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getCompanyCategory())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.COMPANY_CATEGORY + " not found. ");
+			}
+		} else if (!(fields.getAuthorizedCapital() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getAuthorizedCapital())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.AUTHORIZED_CAPITAL + " not found. ");
+			}
+		} else if (!(fields.getPaidUpCapital() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getPaidUpCapital())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.PAIDUP_CAPITAL + " not found. ");
+			}
+		} else if (!(fields.getRegisteredState() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getTimeStamp())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.REGISTERED_STATE + " not found. ");
+			}
+		} else if (!(fields.getRegistrarOfCompanies() == null)) {
+			if (!filedGivenInArrayList.contains(fields
+					.getRegistrarOfCompanies())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.REGISTRAR_OF_COMPANIES + " not found. ");
+			}
+		} else if (!(fields.getPrincipalBusinessActivity() == null)) {
+			if (!filedGivenInArrayList.contains(fields
+					.getPrincipalBusinessActivity())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ TestConstants.PRINCIPAL_BUSINESS_ACTIVITY
+						+ " not found. ");
+			}
+		} else if (!(fields.getRegisteredOfficeAddress() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getTimeStamp())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ fields.getTimeStamp() + " not found. ");
+			}
+		} else if (!(fields.getSubCategory() == null)) {
+			if (!filedGivenInArrayList.contains(fields.getSubCategory())) {
+				System.out.println("Field Selection Test Case : Fail");
+				System.out.println("Failure Reason: Field "
+						+ fields.getSubCategory() + " not found. ");
+			}
+		} else {
+			System.out.println("Field Selection Test Case : PASS");
+		}
+
+	}
+
+}

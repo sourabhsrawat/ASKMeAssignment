@@ -1,0 +1,11 @@
+1453308309066	Move compilation unit
+1453494685975	Rename type 'Company'
+1453495046561	Rename type 'CorporateiDentificationNumber'
+1453545991293	Rename type 'Items'
+1453552802944	Delete element
+1453565481837	Rename resource 'company_master_data_upto_Mar_2015_Maharashtra copy.csv'
+1453567976541	Rename type 'CreateConnection'
+1453568646872	Rename method 'getcorporateIdentificationNumber'
+1453574931720	Rename method 'setcompanyClass'
+1453574968666	Rename method 'getregisteredOfficeAddress'
+1453575131506	Delete element

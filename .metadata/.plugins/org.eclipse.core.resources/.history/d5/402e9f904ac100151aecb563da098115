@@ -1,0 +1,30 @@
+package ask.me.assignment;
+
+import java.util.ArrayList;
+
+public class Records {
+	
+	
+	private boolean isArray;
+	private ArrayList<Items> item;
+	public void setItem(ArrayList<Items> item)
+	{
+		this.item = item;
+	}
+	
+	public ArrayList<Items> getItem()
+	{
+		return item;
+	}
+	
+	public void setIsArray(boolean isArray)
+	{
+		this.isArray = isArray;
+	}
+	
+	public boolean getIsArray()
+	{
+		return isArray;
+	}
+
+}

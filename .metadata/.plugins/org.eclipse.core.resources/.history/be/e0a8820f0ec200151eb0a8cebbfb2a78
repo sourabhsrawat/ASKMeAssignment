@@ -1,0 +1,26 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+
+public class TestOffSet extends TestBase {
+	
+
+	private static final String PARAMETER_LIMIT = "&limit=";
+	private static final String PARAMETER_OFFSET = "&offset=";
+	public void offsetTestSet() throws JsonParseException, JsonMappingException, IOException
+	{
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY +PARAMETER_LIMIT + TestConstants.LIMIT);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+		
+		if(httpRequestResponse.getCount().equals(TestConstants.LIMIT))
+		{
+			System.out.println("Offset test case is pass");
+		}
+		
+	}
+
+}

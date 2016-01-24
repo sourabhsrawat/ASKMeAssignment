@@ -1,0 +1,143 @@
+package ask.me.assignment;
+
+public class Fields {
+
+	private int id;
+	private String timeStamp;
+	private String corporateIdentificationNumber;
+	private String dateOfRegistration;
+	private String companyName;
+	private String companyStatus;
+	private String companyClass;
+	private String companyCategory;
+	private String authorizedCapital;
+	private String paidUpCapital;
+	private String registeredState;
+	private String registrarOfCompanies;
+	private String principalBusinessActivity;
+	private String registeredOfficeAddress;
+	private String subCategory;
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+	public String getTimeStamp() {
+		return timeStamp;
+	}
+	
+	public void setCorporateIdentificationNumber(String corporateIdentificationNumber)
+	{
+		this.corporateIdentificationNumber = corporateIdentificationNumber;
+	}
+	
+	public String getcorporateIdentificationNumber()
+	{
+		return corporateIdentificationNumber;
+	}
+
+	public void setDateOfRegistration(String dateOfRegistration) {
+		this.dateOfRegistration = dateOfRegistration;
+	}
+
+	public String getDateOfRegistration() {
+		return dateOfRegistration;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyStatus(String companyStatus) {
+		this.companyStatus = companyStatus;
+	}
+
+	public String getCompanyStatus() {
+		return companyStatus;
+	}
+
+	public void setcompanyClass(String companyClass) {
+		this.companyClass = companyClass;
+	}
+
+	public String getCompanyClass() {
+		return companyClass;
+	}
+
+	public void setCompanyCategory(String companyCategory) {
+		this.companyCategory = companyCategory;
+	}
+
+	public String getCompanyCategory() {
+		return companyCategory;
+	}
+
+	public void setAuthorizedCapital(String authorizedCapital) {
+		this.authorizedCapital = authorizedCapital;
+	}
+
+	public String getAuthorizedCapital() {
+		return authorizedCapital;
+	}
+
+	public void setPaidUpCapital(String paidUpCapital) {
+		this.paidUpCapital = paidUpCapital;
+	}
+
+	public String getPaidUpCapital() {
+		return paidUpCapital;
+	}
+
+	public void setRegisteredState(String registeredState) {
+		this.registeredState = registeredState;
+	}
+
+	public String getRegisteredState() {
+		return registeredState;
+	}
+
+	public void setRegistrarOfCompanies(String registrarOfCompanies) {
+		this.registrarOfCompanies = registrarOfCompanies;
+	}
+
+	public String getRegistrarOfCompanies() {
+		return registrarOfCompanies;
+	}
+
+	public void setPrincipalBusinessActivity(String principalBusinessActivity) {
+		this.principalBusinessActivity = principalBusinessActivity;
+	}
+
+	public String getPrincipalBusinessActivity() {
+		return principalBusinessActivity;
+	}
+
+	public void setRegisteredOfficeAddress(String registeredOfficeAddress) {
+		this.registeredOfficeAddress = registeredOfficeAddress;
+	}
+
+	public String getregisteredOfficeAddress() {
+		return registeredOfficeAddress;
+	}
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
+
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+}

@@ -1,0 +1,138 @@
+package ask.me.assignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class TestFieldSelection extends TestBase {
+
+	private static final String PARAMETER_FIELD = "&fields=";
+	private static final String SPLITER = ",";
+
+	public void fieldTestSet() throws IOException {
+		StringBuffer response = getResponse(TestConstants.REQUEST_URL
+				+ TestConstants.KEY + PARAMETER_FIELD + TestConstants.FIELDS);
+		RequestResponse httpRequestResponse = mapHttpRequest(response);
+		
+		String[] filedsGiven = TestConstants.FIELDS.split(SPLITER);
+		
+		Fields fields = httpRequestResponse.getFields();
+		
+		ArrayList<String> filedGivenInArrayList = (ArrayList<String>) Arrays.asList(filedsGiven);
+		
+		if(!(fields.getId() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getId()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getId() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getDateOfRegistration() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getDateOfRegistration()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getDateOfRegistration() +" not found. ");
+			}
+		}
+		else if(!(fields.getCompanyName() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getCompanyName()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getCompanyName() +" not found. ");
+			}
+		}
+		else if(!(fields.getCompanyStatus() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getCompanyStatus()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getCompanyStatus() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+		else if(!(fields.getTimeStamp() == null))
+		{
+			if(!filedGivenInArrayList.contains(fields.getTimeStamp()))
+			{
+				System.out.println("Field Selection Test Case : Fail" );
+				System.out.println("Failure Reason: Field "+ fields.getTimeStamp() +" not found. ");
+			}
+		}
+
+	}
+
+}
